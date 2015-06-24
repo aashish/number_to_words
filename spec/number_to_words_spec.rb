@@ -2,19 +2,19 @@ require_relative 'spec_helper'
 
 describe "Number to Words" do 
   it "should accept one argument" do 
-    NumberToWords.new([23, 44]).to_words.should raise_error("expected 1 argument")
+     expect{NumberToWords.new([23, 44])}.to raise_error("expected 1 argument")   
   end
 
   it "should accept positive numbers only" do 
-    NumberToWords.new([-44]).to_words.should raise_error("expected only positive number")
+     expect{NumberToWords.new([-24])}.to raise_error("expected only positive number")
   end  
 
   it "should accept less than 5 digit number only" do 
-    NumberToWords.new([24552]).to_words.should raise_error("expected less than 5 digit number")
+     expect{NumberToWords.new([23556])}.to raise_error("expected less than 5 digit number")
   end
 
   it "should accept integers only" do 
-    NumberToWords.new(['etggf']).to_words.should raise_error("expected only integers")
+     expect{NumberToWords.new(['ffssgg'])}.to raise_error("expected only integers")
   end
 
   it "should print the digits 0-9 correctly" do
